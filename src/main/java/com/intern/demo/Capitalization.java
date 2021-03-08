@@ -1,9 +1,12 @@
 package com.intern.demo;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -13,9 +16,11 @@ public class Capitalization {
     private static String capitalize (String input) {
         //TODO Add logic to capitalize String Input
         //TODO Input = "I want to lEARN JAVA"
-        //TODO Output = "I Want To Learn Java
+        //TODO Output = "I Want To Learn Java"
 
-        return WordUtils.capitalizeFully(input);
+        return Arrays.stream(input.toLowerCase().split(" ")).
+                map(StringUtils::capitalize).
+                collect(Collectors.joining(" "));
     }
 
     public static Map<String, List<String>> convertToMap (List<Book> books) {
