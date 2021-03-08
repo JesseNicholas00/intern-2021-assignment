@@ -31,11 +31,11 @@ public class CapitalizationTest {
 
         List<Book> input = Arrays.asList(importedBook1, localBook1);
 
-        Map<String, List<String>> actual_map = Capitalization.convertToMap(input);
-        Map<String, List<String>> expect_map = new HashMap<>();
-        expect_map.put("John Doe", Arrays.asList("Imported Book 1"));
-        expect_map.put("Jane Stark", Arrays.asList("Local Book 1"));
+        Map<String, List<String>> actualMap = Capitalization.convertToMap(input);
+        Map<String, List<String>> expectMap = new HashMap<>();
+        expectMap.put("John Doe", Arrays.asList("Imported Book 1"));
+        expectMap.put("Jane Stark", Arrays.asList("Local Book 1"));
 
-        assertEquals(expect_map, actual_map);
+        assertEquals(expectMap, actualMap);
     }
 }
