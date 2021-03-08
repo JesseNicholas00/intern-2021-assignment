@@ -5,6 +5,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 public class CapitalizationTest {
@@ -20,5 +26,16 @@ public class CapitalizationTest {
     @Test
     public void convertToMapTest() {
 
+        ImportedBook importedBook1 = new ImportedBook("joHN dOE", "IMPORTED book 1", "joHN dOE");
+        LocalBook localBook1 = new LocalBook("jaNE stARk", "loCal bOok 1", "gramEDia");
+
+        List<Book> input = Arrays.asList(importedBook1, localBook1);
+
+        Map<String, List<String>> actual_map = Capitalization.convertToMap(input);
+        Map<String, List<String>> expect_map = new HashMap<>();
+        expect_map.put("John Doe", Arrays.asList("Imported Book 1"));
+        expect_map.put("Jane Stark", Arrays.asList("Local Book 1"));
+
+        assertEquals(expect_map, actual_map);
     }
 }
